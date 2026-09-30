@@ -59,12 +59,16 @@ export function HomePage() {
                   key={`${word}-${index}`}
                   className={
                     HIGHLIGHT.has(index)
-                      ? 'font-serif italic text-gold-600'
-                      : 'text-navy'
+                      ? "font-serif italic text-gold-600"
+                      : "text-navy"
                   }
-                  initial={{ opacity: 0, y: 26, filter: 'blur(8px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  transition={{ duration: 0.9, delay: 0.3 + index * 0.09, ease: EASE }}
+                  initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{
+                    duration: 0.9,
+                    delay: 0.3 + index * 0.09,
+                    ease: EASE,
+                  }}
                 >
                   {word}
                 </motion.span>
@@ -77,8 +81,9 @@ export function HomePage() {
               transition={{ duration: 1, delay: 0.85, ease: EASE }}
               className="mt-6 max-w-[46ch] text-[1.02rem] leading-[1.8] text-ink/70 sm:text-[1.1rem]"
             >
-              Ustoz va murabbiylar kuniga bag‘ishlangan, chin qalbdan yozilgan tabriklar. Har bir
-              ustoz uchun alohida tayyorlangan shaxsiy sahifa — ismi, surati va samimiy tilaklar bilan.
+              Ustoz va murabbiylar kuniga bag‘ishlangan, chin qalbdan yozilgan
+              tabriklar. Har bir ustoz uchun alohida tayyorlangan shaxsiy sahifa
+              — ismi, surati va samimiy tilaklar bilan.
             </motion.p>
 
             <motion.div
@@ -103,7 +108,10 @@ export function HomePage() {
               className="mt-9 flex flex-wrap gap-x-6 gap-y-3"
             >
               {POINTS.map((point) => (
-                <li key={point.text} className="flex items-center gap-2 text-sm text-muted">
+                <li
+                  key={point.text}
+                  className="flex items-center gap-2 text-sm text-muted"
+                >
                   <span className="text-gold-600">{point.icon}</span>
                   {point.text}
                 </li>
@@ -135,10 +143,14 @@ export function HomePage() {
               <Reveal key={reason.title} delay={index * 0.1}>
                 <article className="paper h-full px-6 py-7 sm:px-7 sm:py-8">
                   <span className="font-display text-sm text-gold-500/80">
-                    {String(index + 1).padStart(2, '0')}
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-2 font-display text-lg font-medium text-navy">{reason.title}</h3>
-                  <p className="mt-2.5 text-[0.95rem] leading-[1.8] text-muted">{reason.body}</p>
+                  <h3 className="mt-2 font-display text-lg font-medium text-navy">
+                    {reason.title}
+                  </h3>
+                  <p className="mt-2.5 text-[0.95rem] leading-[1.8] text-muted">
+                    {reason.body}
+                  </p>
                 </article>
               </Reveal>
             ))}
@@ -148,7 +160,8 @@ export function HomePage() {
             <div className="mx-auto max-w-2xl text-center">
               <GoldDivider className="mx-auto" />
               <p className="mt-6 font-serif text-[clamp(1.2rem,4.4vw,1.7rem)] italic leading-[1.6] text-navy/80">
-                «Ustoz — kunning eng yorug‘ quyoshiday: qayerga kirsa, yaxshilik olib kiradi.»
+                «Ustoz — kunning eng yorug‘ quyoshiday: qayerga kirsa, yaxshilik
+                olib kiradi.»
               </p>
             </div>
           </Reveal>
@@ -162,8 +175,8 @@ export function HomePage() {
               Tanlang — tabrik o‘zi ochiladi
             </h2>
             <p className="mx-auto mt-4 max-w-[52ch] text-[0.98rem] leading-[1.8] text-muted">
-              Ustozni tanlang — uning shaxsiy tabriga o‘tasiz. Ism yoki parol kerak emas:
-              sahifada tabrik allaqachon tayyor turibdi.
+              Ustozni tanlang — uning shaxsiy tabrigiga o‘tasiz. Ism yoki parol
+              kerak emas: sahifada tabrik allaqachon tayyor turibdi.
             </p>
           </Reveal>
 
@@ -180,12 +193,12 @@ export function HomePage() {
             <div className="paper grain mx-auto max-w-3xl overflow-hidden px-6 py-12 text-center sm:px-12 sm:py-16">
               <p className="eyebrow">Yana bir so‘z</p>
               <h2 className="mt-4 font-display text-[clamp(1.7rem,5.6vw,2.6rem)] font-medium leading-[1.25] text-navy">
-                Bugun faqat tabrik etsak, yetarlimi?
+                Bugun faqat tabrik bilan cheklanib qolish yetarlimi?
               </h2>
               <p className="mx-auto mt-4 max-w-[52ch] text-[0.98rem] leading-[1.85] text-muted">
-                Bugundan boshlab har kuni eslaymiz: ularni tinglaymiz, mehnatini qadrlaymiz va
-                yaxshi so‘zni behuda qoldirmaymiz. Zero, ustozga eng katta hurmat — o‘z vaqtida
-                aytilgan chin tabrikdir.
+                Bugundan boshlab har kuni eslaymiz: ularni tinglaymiz, mehnatini
+                qadrlaymiz va yaxshi so‘zni behuda qoldirmaymiz. Zero, ustozga
+                eng katta hurmat — o‘z vaqtida aytilgan chin tabrikdir.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <a href="#ustozlar" className="btn-primary">
@@ -203,5 +216,5 @@ export function HomePage() {
 
       <SiteFooter />
     </>
-  )
+  );
 }
