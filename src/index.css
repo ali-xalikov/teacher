@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Tabiiy, yumshoq fokus halqasi */
+  :where(a, button, input, [tabindex]):focus-visible {
+    @apply outline-none ring-2 ring-gold-400/70 ring-offset-2 ring-offset-cream;
+  }
+
+  ::selection {
+    @apply bg-gold-200 text-navy;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Kichik, ceremonial (marosatli) yorliq */
+  .eyebrow {
+    @apply font-sans text-[0.68rem] font-medium uppercase tracking-ceremonial text-gold-600 sm:text-[0.72rem];
+  }
+
+  /* Nozik tilla chiziq */
+  .gold-rule {
+    @apply h-px w-full bg-gold-hairline;
+  }
+
+  /* Premium kartochka */
+  .paper {
+    @apply relative rounded-[1.75rem] border border-line/70 bg-cream-50 shadow-card;
+  }
+
+  /* Juda yengil glassmorphism (faqat ustki qatlamlarda) */
+  .veil {
+    @apply border border-white/60 bg-white/55 backdrop-blur-xl;
+  }
+
+  /* Interaktiv tugma */
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-full px-6 py-3
+           text-sm font-medium tracking-wide transition-all duration-500
+           sm:px-7 sm:py-3.5 sm:text-[0.95rem];
+  }
+
+  .btn-primary {
+    @apply btn bg-navy text-cream-50 shadow-soft
+           hover:-translate-y-0.5 hover:bg-navy-700 hover:shadow-card
+           active:translate-y-0;
+  }
+
+  .btn-gold {
+    @apply btn border border-gold-300/70 bg-gold-100/70 text-navy shadow-soft
+           hover:-translate-y-0.5 hover:border-gold-400 hover:bg-gold-100
+           active:translate-y-0;
+  }
+
+  .btn-quiet {
+    @apply btn text-navy/70 hover:bg-navy/5 hover:text-navy;
+  }
+
+  /* Zarracha/noqis grain — qog'oz hissi uchun */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  /* Ijoy ta'sirini to'xtatish (canvas o'zi hal qiladi) */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .writing-vertical {
+    writing-mode: vertical-rl;
+  }
+}
+
+/* Foydalanuvchi harakatni kamaytirgan bo'lsa — nozik effektlarni o'chiramiz */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
